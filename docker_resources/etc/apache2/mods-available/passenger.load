@@ -1,0 +1,1 @@
+LoadModule passenger_module /home/theo/.rvm/gems/ruby-2.4.1/gems/passenger-5.2.0/buildout/apache2/mod_passenger.so

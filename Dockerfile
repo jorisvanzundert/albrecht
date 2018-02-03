@@ -17,13 +17,13 @@ RUN /bin/bash -c "source ~/.bash_profile"
 RUN /bin/bash -l -c "rvm install 2.4.1"
 RUN /bin/bash -l -c "gem install passenger --no-rdoc --no-ri"
 RUN /bin/bash -l -c "passenger-install-apache2-module --auto --languages ruby"
-COPY docker_resources/etc/apache2 /etc/apache2/
+COPY ./docker_resources/etc/apache2 /etc/apache2/
 WORKDIR /home/theo
 RUN sudo mkdir WebApps
 WORKDIR /home/theo/WebApps
 RUN sudo mkdir albrecht
 COPY ./app /home/theo/WebApps/albrecht/
-COPY ./usr/local/bin /usr/local/bin/
+COPY ./docker_resources/usr/local/bin /usr/local/bin/
 RUN /bin/bash -l -c "sudo chmod g+x /usr/local/bin/bootstrap_albrecht"
 RUN sudo mkdir /var/www/fcgi
 RUN sudo mkdir /var/www/fcgi/iipimage-server

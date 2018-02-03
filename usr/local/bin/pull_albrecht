@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "Deploying albrecht resources..."
+sudo cp -r /srv/remote/app/* /home/theo/WebApps/albrecht
+echo "Done."

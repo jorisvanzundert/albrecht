@@ -10,7 +10,7 @@ RUN echo "theo ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/theo && \
 USER theo
 RUN sudo apt-get install -y apache2 iipimage-server software-properties-common gnupg2
 RUN sudo apt-get install -y libcurl4-openssl-dev apache2-dev libapr1-dev libaprutil1-dev
-RUN sudo apt-get install -y vim
+RUN sudo apt-get install -y vim git iputils-ping
 RUN sudo curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
 RUN sudo curl -L https://get.rvm.io | bash -s stable
 RUN /bin/bash -c "source ~/.bash_profile"
@@ -23,11 +23,14 @@ RUN sudo mkdir WebApps
 WORKDIR /home/theo/WebApps
 RUN sudo mkdir albrecht
 COPY ./app /home/theo/WebApps/albrecht/
-RUN sudo mkdir /var/www/fcgi \
-sudo mkdir /var/www/fcgi/iipimage-server \
-sudo cp /usr/lib/iipimage-server/iipsrv.fcgi /var/www/fcgi/iipimage-server/
-RUN /bin/bash -l -c "gem install sinatra --no-rdoc --no-ri" \
-/bin/bash -l -c "gem install logger --no-rdoc --no-ri" \
-/bin/bash -l -c "gem install sinatra-contrib --no-rdoc --no-ri" \
+COPY ./usr/local/bin /usr/local/bin/
+RUN /bin/bash -l -c "sudo chmod g+x /usr/local/bin/bootstrap_albrecht"
+RUN sudo mkdir /var/www/fcgi
+RUN sudo mkdir /var/www/fcgi/iipimage-server
+RUN /bin/bash -l -c "sudo cp /usr/lib/iipimage-server/iipsrv.fcgi /var/www/fcgi/iipimage-server/"
+RUN /bin/bash -l -c "gem install sinatra --no-rdoc --no-ri"
+RUN /bin/bash -l -c "gem install logger --no-rdoc --no-ri"
+RUN /bin/bash -l -c "gem install sinatra-contrib --no-rdoc --no-ri"
 RUN /bin/bash -l -c "cd /etc/apache2/mods-enabled;sudo ln -s ../mods-available/passenger.conf passenger.conf;sudo ln -s ../mods-available/passenger.load passenger.load;cd ../sites-enabled;sudo ln -s ../sites-available/albrecht.conf albrecht.conf"
 RUN /bin/bash -l -c "cd /etc/apache2/sites-enabled;sudo rm 000-default.conf"
+RUN /bin/bash -l -c "sudo chmod a+w /home/theo/WebApps/albrecht/log"

@@ -1,0 +1,5 @@
+#!/bin/bash
+echo "Copying deployment script from remote..."
+sudo cp /srv/remote/usr/local/bin/pull_albrecht /usr/local/bin/pull_albrecht
+sudo chmod g+x /usr/local/bin/pull_albrecht
+sudo pull_albrecht

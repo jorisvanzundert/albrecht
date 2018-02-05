@@ -22,8 +22,7 @@ require 'sinatra/reloader'
     'Success. Sinatra running at your convenience.'
   end
 
-  get '/test' do
+  get '/thumbnail' do
     headers 'Access-Control-Allow-Origin' => '*'
-    "dit is alleen om te testen"
-    # erb :reynaert
+    erb :thumbnail_view
   end

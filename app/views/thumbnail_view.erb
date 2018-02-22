@@ -5,11 +5,24 @@
   <title>Albrecht — Thumnnail Viewer</title>
   <meta name="description" content="Albrecht Photo Viewer, thumbnail view">
   <meta name="author" content="Joris J. van Zundert">
-  <!--link rel="stylesheet" href="css/styles.css?v=1.0"-->
+  <link rel="stylesheet" href="css/style.css">
+  <script type="text/javascript" src="js/iscroll-probe.js"></script>
+  <script type="text/javascript" src="js/blazy.js"></script>
+  <script type="text/javascript" src="js/openseadragon-bin-2.3.1/openseadragon.js"></script>
+  <script type="text/javascript" src="js/blazy-iscroll-utils.js"></script>
+  </script>
+  <style>
+  </style>
 </head>
 
-<body>
-  <h1>Hello World!</h1>
-  <img src="/iipsrv/iipsrv.fcgi?FIF=IMG_0773.tif&WID=64&ROT=270&CVT=jpeg"/>
+<body onload="document_loaded()">
+  <div id="viewer">
+  </div>
+  <div id="wrapper">
+    <div id="scroller">
+        <% @thumbnails.each do |thumbnail| %><%= thumbnail %><% end %>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

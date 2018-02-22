@@ -1,0 +1,58 @@
+html {
+  -ms-touch-action: none;
+}
+body {
+  background-color: #f4fdff;
+  overflow: hidden;
+  margin: 0px;
+}
+#wrapper {
+  position: absolute;
+  bottom: 0px;
+  height: 102px;
+  left: 0;
+  width: 100%;
+  background: #acc6e1;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+  border-top: 1px solid #8cb5ea;
+  border-bottom: 1px solid #8cb5ea;
+}
+#scroller {
+  white-space: nowrap;
+  overflow-x: hidden;
+  position: absolute;
+  z-index: 1;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  background-color: #acc6e1;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  -o-text-size-adjust: none;
+  text-size-adjust: none;
+}
+.thumbnail {
+  border: 6px solid white;
+  margin-right: 1px;
+  background-color: #6a9cd1;
+  height: 90px;
+}
+#viewer {
+  border: 12px solid white;
+  margin: auto;
+  margin-top: 10px;
+  width: 668px;
+  height: 501px;
+  background-color: #acc6e1;
+}

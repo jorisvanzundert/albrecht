@@ -9,19 +9,18 @@
   <script type="text/javascript" src="js/iscroll-probe.js"></script>
   <script type="text/javascript" src="js/blazy.js"></script>
   <script type="text/javascript" src="js/openseadragon-bin-2.3.1/openseadragon.js"></script>
-  <script type="text/javascript" src="js/blazy-iscroll-utils.js"></script>
+  <script type="text/javascript" src="js/blazy-iscroll-utils_new.js"></script>
   </script>
   <style>
   </style>
 </head>
 
 <body onload="document_loaded()">
-  <div id="viewer">
+  <div id="viewers">
   </div>
   <div id="wrapper">
     <div id="scroller">
-        <% @thumbnails.each do |thumbnail| %><%= thumbnail %><% end %>
-      </div>
+      <% @thumbnails.each do |thumbnail| %><%= thumbnail %><% end %>
     </div>
   </div>
 </body>

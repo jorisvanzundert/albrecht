@@ -48,11 +48,17 @@ body {
   background-color: #6a9cd1;
   height: 90px;
 }
-#viewer {
+#viewers {
+}
+.viewer_container {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+}
+.viewer {
+  opacity: 0;
   border: 12px solid white;
   margin: auto;
-  margin-top: 10px;
-  width: 668px;
   height: 501px;
-  background-color: #acc6e1;
+  background-color: white;
 }
